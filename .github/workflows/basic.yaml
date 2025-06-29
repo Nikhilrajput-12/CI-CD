@@ -1,0 +1,31 @@
+name: basic
+
+on: 
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+  build:
+    runs-on: ubunut-latest
+
+    steps:
+      - name: checkout code
+        uses: action/checkout@v4
+
+      - name: show current directory
+        run: pwd
+
+      - name: list all files
+        run: ls -la
+
+      - name: run custom script
+        run: |
+          echo "hello from ci"
+          echo "today is : $(date)"
+          
