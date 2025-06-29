@@ -17,3 +17,14 @@ jobs:
 
       - name:  make a directory
         run: mkdir hello
+
+      - name: Create directory and file
+        run: |
+          mkdir hlo
+          echo "Hello!" > hlo/hello.txt
+
+      - name: Upload directory
+        uses: actions/upload-artifact@v4
+        with:
+          name: hlo-folder
+          path: hlo/
